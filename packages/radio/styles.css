@@ -1,0 +1,44 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  line-height: 0.8;
+  cursor: pointer;
+}
+:host(:hover) {
+  opacity: 0.8;
+}
+:host([disabled]) {
+  opacity: 0.6;
+  pointer-events: none;
+}
+:focus-visible + #presentation {
+  outline: rgba(0, 0, 0, 0.4) dashed 0.1em;
+  outline-offset: -0.1em;
+}
+:host #control {
+  cursor: inherit;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+#presentation {
+  width: 1.5em;
+  height: 1.5em;
+  fill: #a3a3a3;
+  border-radius: 50%;
+}
+:host([checked]) #presentation {
+  fill: var(--color-accent);
+}
+:host #power-indicator {
+  visibility: hidden;
+}
+:host .checked #power-indicator {
+  visibility: visible;
+}

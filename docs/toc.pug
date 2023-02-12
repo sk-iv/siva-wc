@@ -1,0 +1,4 @@
+div#toc
+  if data.length > 0
+    each value in data
+      a(href=`#${value.name}`)=value.heading

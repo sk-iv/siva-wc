@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/attributes",
+  "definitions": {
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "emphasis": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "description": "Выражение визуальной доминанты",
+          "default": "primary"
+        },
+        "color": {
+          "type": "string",
+          "enum": [
+            "main",
+            "supporting",
+            "accent"
+          ],
+          "description": "Цвет элемента, также выражает визуальную иерархию",
+          "default": "main"
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "m",
+            "s",
+            "l"
+          ],
+          "default": "m"
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Отсутствие интеактивности",
+          "default": false
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

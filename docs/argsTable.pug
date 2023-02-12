@@ -1,0 +1,45 @@
+div#attributes
+  if data
+    each value, key in data
+      div
+        div
+          strong=key
+
+        div
+          if value.type === 'string' && !value.enum
+            input(type='text', name=key, value=data[key] && data[key].value)
+
+          if value.type === 'string' && value.enum
+            select(name=key)
+              each option, index in value.enum
+                option(
+                  key=option,
+                  value=option,
+                  defaultvalue=value.default === option
+                  selected=value.value === option
+                )=option
+
+          if value.type === 'boolean'
+            input(
+              id=`checkbox-${key}`,
+              type='checkbox',
+              name=key,
+              checked=value.checked != null ? value.checked : value.default
+            )
+
+        if value.description
+          div(class="attr-margin")=value.description
+
+        div(class="attr-margin")
+          em Тип &nbsp;
+          if value.type && value.enum
+            span(class="enum-props")
+              each propVal, propKey in value.enum
+                span(class=value.default === propVal && "default-prop")=propVal
+          else
+            span=value.type
+        if !value.enum
+          div
+            em Дефолтное &nbsp;
+            span=value.default == null ? ' - ' : value.default
+        hr

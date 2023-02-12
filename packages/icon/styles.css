@@ -1,0 +1,12 @@
+:host {
+  display: inline-flex;
+  stroke: currentColor;
+  stroke-linecap: inherit;
+  stroke-linejoin: inherit;
+  overflow: visible;
+  vertical-align: middle;
+  transition: all 0.3s ease 0s;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  fill: var(--my-element-text-color, #000);
+}

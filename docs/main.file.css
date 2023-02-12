@@ -1,0 +1,145 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh; 
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Georgia, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+}
+
+/* #root, .wrapper {
+  min-height: 100vh;
+} */
+
+header {
+  grid-area: header;
+  height:50px;
+}
+main {
+  grid-area: content;
+  background-color: #fff;
+  padding: 24px;
+}
+nav {
+  grid-area: nav;
+}
+aside {
+  grid-area: sidebar;
+  position: fixed;
+  width: 300px;
+  right: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.ad {
+  grid-area: ad;
+}
+footer {
+  grid-area: footer;
+  min-height:50px;
+}
+section {
+  margin-top: 48px;
+}
+
+.wrapper {
+  background-color: #ccc;
+  display: grid;
+  grid-template-rows: min-content;
+  grid-gap: 20px;
+  grid-template-areas:
+    "header"
+    "nav"
+    "content"
+    "sidebar"
+    "ad"
+    "footer";
+}
+
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 0.5fr 3fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    content sidebar"
+      "nav    content ad"
+      "footer footer  footer"
+   }
+   nav ul {
+     flex-direction: column;
+   }
+}
+
+.asterisk::after {
+  content: '*';
+  color: tomato;
+}
+
+@media (--theme: ext) { 
+  body {
+    color: red;
+  }
+}
+
+table {
+  border: 1px solid #515151;
+}
+
+table th {
+  text-align: right;
+  font-weight: 400;
+  color: #515151;
+}
+
+table th, table td {
+  padding: 16px;
+}
+
+.attr-margin {
+  margin-top: 16px;
+  display: flex;
+}
+
+.default-prop {
+  text-decoration: underline overline #535353;
+}
+
+.enum-props {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.enum-props span {
+  padding-right: 8px;
+  padding-left: 8px;
+  border-right: 1px solid black;
+}
+
+.enum-props span:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.slide {
+  height: 100vh;
+  padding: 24px;
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+#toc {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  border-left: 4px solid #ddd;
+  padding-left: 8px;
+}
+
+#toc a {
+  margin-bottom: 8px;
+  display: inline-flex;
+}

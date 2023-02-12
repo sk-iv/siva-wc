@@ -1,0 +1,116 @@
+:focus-visible {
+  outline: rgba(0, 0, 0, 0.4) dotted 2px;
+  outline-offset: -4px;
+}
+
+:host [color="main"] {
+  background-color: #b8b8b8;
+  border-color: #8d8d8d;
+  color: #000000;
+}
+
+:host [aria-busy="true"] {
+  position: relative;
+  overflow: hidden;
+  cursor: wait;
+}
+
+:host [aria-busy="true"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  background: repeating-linear-gradient(60deg, 
+              transparent, 
+              transparent 0.75rem, 
+              rgba(141, 141,141, 0.46) 0.75rem, 
+              rgba(141, 141,141, 0.46) 1.5rem);
+  /* animation: load 2s infinite linear; */
+}
+
+:host [emphasis="primary"] {
+  color: white;
+}
+
+:host [color="supporting"] {
+  background-color: var(--color-supporting);
+  border-color: var(--color-supporting);
+  color: #8b5a23;
+}
+
+:host [color="accent"] {
+  background-color: var(--color-accent);
+  border-color: #00746d;
+  color: #ffffff;
+}
+
+:host [emphasis="tertiary"] {
+  background-color: transparent;
+  border-color: transparent;
+  color: #8d8d8d;
+}
+
+:host [emphasis="secondary"] {
+  background-color: white;
+}
+
+:host [emphasis="secondary"][color="main"] {
+  color: #8d8d8d;
+}
+
+:host [emphasis="secondary"][color="supporting"] {
+  color: var(--color-supporting);
+}
+
+:host [emphasis="secondary"][color="accent"] {
+  color: var(--color-accent);
+}
+
+:host [size="s"] {
+  height: 36px;
+}
+
+:host [size="m"] {
+  height: 48px;
+}
+
+:host [size="l"] {
+  height: 60px;
+}
+
+:host button:hover {
+  filter: url('#teal-white');
+}
+
+:host [aria-pressed="true"],
+:host button:active {
+  filter: brightness(0.7);
+}
+
+:host button[disabled] {
+  cursor: not-allowed;
+  filter: brightness(1.2) grayscale(1);
+}
+
+:host button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid;
+  font-weight: bold;
+}
+
+::slotted(sv-icon) {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1.75rem);
+  }
+}
