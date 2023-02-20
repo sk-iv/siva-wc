@@ -23,6 +23,7 @@ export default {
     height="24"
     aria-hidden="true"
     focusable="false"
+    role="presentation"
   >
     <path id="fillPrimary" fill="var(--icon-text-color, #ece2df)" d="" />
     <path id="fill" fill="var(--my-element-text-color, #000)" d="" />

@@ -1,16 +1,18 @@
-import { within, screen } from '@testing-library/dom'
+import { describe, it, beforeEach, expect } from 'vitest'
+import { screen } from '@testing-library/dom'
+import { fixture } from "@open-wc/testing-helpers";
 //@ts-ignore
 import { Icon, tagName } from './icon'
 
 describe('Icon', () => {
+  beforeEach(async () => {
+    await fixture(`<${tagName} name="heart" data-testid="icon"></${tagName}>`);
+  });
 
-  it('Renders Icon', () => {
-    let element: any = document.createElement(tagName)
-    document.body.appendChild(element)
-
-    const { getByTestId } = within(element.shadowRoot)
+  it('Icon', () => {
+    // const { getByRole } = within(element.shadowRoot)
     screen.debug()
-    element = getByTestId('Icon')
+    const element = screen.getByTestId("icon")
     expect(element).toBeTruthy
   })
 })

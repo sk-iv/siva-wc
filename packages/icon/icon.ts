@@ -3,7 +3,7 @@ const glyphs = require('./glyphs/24/icons24.json')
 const glyphsRich = require('./glyphs/96/icons96.json')
 import Template from './template';
 //@ts-ignore
-import styles from '!!raw-loader!./styles.css';
+import styles from './styles.css';
 const sheet = new CSSStyleSheet();
 //@ts-ignore
 sheet.replaceSync(styles);
@@ -93,7 +93,7 @@ export class Icon extends HTMLElement {
       this.dom.fillAccent?.setAttribute('d', this.typeGlyphs[name]?.fillAccent)
     }
     this.dom.outline?.setAttribute('d', this.typeGlyphs[name]?.outline)
-    Boolean(this.typeGlyphs[name].edge && this.dom.edge?.setAttribute('d', this.typeGlyphs[name].edge))
+    Boolean(this.typeGlyphs[name]?.edge && this.dom.edge?.setAttribute('d', this.typeGlyphs[name].edge))
   }
 
 }

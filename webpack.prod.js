@@ -1,16 +1,13 @@
-const webpack = require('webpack')
 const glob = require('glob')
 const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path')
-const postcss = require('postcss');
+
 //const ESLintPlugin = require('eslint-webpack-plugin')
 //const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin')
 
 // eslint-disable-next-line camelcase
 // __webpack_base_uri__ = 'http://localhost:8080';
-
-const processor = postcss();
 
 const entries = {}
 glob.sync('./packages/**/index.ts').forEach((path1) => {
@@ -20,7 +17,7 @@ glob.sync('./packages/**/index.ts').forEach((path1) => {
   }
 })
 
-module.exports = (env, argv) => ({
+module.exports = () => ({
   mode: 'production',
   // stats: {
   //   errorDetails: true, // --display-error-details
@@ -63,7 +60,7 @@ module.exports = (env, argv) => ({
       {
         test: /\.css$/,
         use: [
-          'style-loader', 'css-loader',
+          'raw-loader',
         ],
       },
       {

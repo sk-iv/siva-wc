@@ -2,7 +2,7 @@ import conf from '../../global.config'
 export const tagName = `${conf.wcPrefix}-radio`
 import Template from './template';
 //@ts-ignore
-import styles from '!!raw-loader!./styles.css' assert { type: 'css' };
+import styles from './styles.css';
 const sheet = new CSSStyleSheet();
 //@ts-ignore
 sheet.replaceSync(styles);

@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const preprocess = require('svelte-preprocess')
 const path = require('path')
-const postcss = require('postcss');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 //const ESLintPlugin = require('eslint-webpack-plugin')
 //const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -9,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // eslint-disable-next-line camelcase
 __webpack_base_uri__ = 'http://localhost:8080';
-const processor = postcss();
 
 // Try the environment variable, otherwise use root
 // argv.mode !== 'production' ? '/' : 'assets/'
@@ -81,7 +79,7 @@ module.exports = (env, argv) => ({
         test: /\.css$/,
         exclude: /\.file.css$/i,
         use: [
-          'style-loader', 'css-loader',
+          'raw-loader',
         ],
       },
       {
