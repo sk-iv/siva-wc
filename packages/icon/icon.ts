@@ -1,11 +1,11 @@
 import conf from '../global.config'
 const glyphs = require('./glyphs/24/icons24.json')
 const glyphsRich = require('./glyphs/96/icons96.json')
+import { SvElement } from '../SvElement'
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';
 const sheet = new CSSStyleSheet();
-//@ts-ignore
 sheet.replaceSync(styles);
 
 export const tagName = `${conf.wcPrefix}-icon` as const;
@@ -25,22 +25,16 @@ const type = {
   },
 }
 
-export class Icon extends HTMLElement {
+export class Icon extends SvElement {
   size: 'md' | 'sm' | 'lg';
   typeGlyphs: any;
-  dom: any;
 
   static get observedAttributes() {
     return ['filled', 'aria-label']
   }
 
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-    (this.shadowRoot as ShadowRoot).innerHTML = Template.render();
-    //@ts-ignore
-    this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.dom = Template.mapDOM(this.shadowRoot);
+    super(Template, sheet);
 
     this.size = 'md'
     this.typeGlyphs = glyphs

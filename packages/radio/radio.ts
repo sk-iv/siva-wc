@@ -1,27 +1,20 @@
 import conf from '../global.config'
 export const tagName = `${conf.wcPrefix}-radio` as const;
+import { SvElement } from '../SvElement'
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';
 const sheet = new CSSStyleSheet();
-//@ts-ignore
 sheet.replaceSync(styles);
 
-export class Radio extends HTMLElement {
+export class Radio extends SvElement {
 
-  dom: any;
-  host: any;
   //https://microsoft.github.io/PowerBI-JavaScript/interfaces/_node_modules_typedoc_node_modules_typescript_lib_lib_dom_d_.inputevent.html
   handlerInput: (input: InputEvent) => void;
 
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open', delegatesFocus: true });
+    super(Template, sheet);
 
-    (this.shadowRoot as ShadowRoot).innerHTML = Template.render();
-    //@ts-ignore
-    this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.dom = Template.mapDOM(this.shadowRoot);
     this.handlerInput = () => { };
   }
 

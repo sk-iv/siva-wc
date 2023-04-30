@@ -1,27 +1,19 @@
 import conf from '../global.config'
 export const tagName = `${conf.wcPrefix}-field-text` as const;
+import { SvElement } from '../SvElement'
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';
 const sheet = new CSSStyleSheet();
-//@ts-ignore
-
 sheet.replaceSync(styles);
 
-export class FieldText extends HTMLElement {
+export class FieldText extends SvElement {
 
-  dom: any;
-  host: any;
   handlerInput: (input: InputEvent) => void;
 
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open', delegatesFocus: true });
+    super(Template, sheet);
 
-    (this.shadowRoot as ShadowRoot).innerHTML = Template.render();
-    //@ts-ignore
-    this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.dom = Template.mapDOM(this.shadowRoot);
     this.handlerInput = () => { };
   }
 

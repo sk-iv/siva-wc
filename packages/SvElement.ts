@@ -1,16 +1,21 @@
+type Template = {
+  mapDOM: (scope: ShadowRoot) => Record<string, any>;
+  html: () => string;
+}
 export abstract class SvElement extends HTMLElement {
-  //@ts-ignore
-  #dom: any;
-  //@ts-ignore
-  #host: any;
+  protected dom: Record<string, any>;
+  private static render(template) {
+    return `${template.html()}`;
+  }
+  shadowRoot!: ShadowRoot;
 
-  constructor(template, sheet) {
+  constructor(template: Template, sheet) {
     super();
     this.attachShadow({ mode: 'open', delegatesFocus: true });
 
-    (this.shadowRoot as ShadowRoot).innerHTML = template.render();
+    this.shadowRoot.innerHTML = SvElement.render(template);
 
-    (this.shadowRoot as ShadowRoot).adoptedStyleSheets = [sheet];
-    this.#dom = template.mapDOM(this.shadowRoot);
+    this.shadowRoot.adoptedStyleSheets = [sheet];
+    this.dom = template.mapDOM(this.shadowRoot);
   }
 }

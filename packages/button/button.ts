@@ -1,5 +1,6 @@
 import conf from '../global.config'
 export const tagName = `${conf.wcPrefix}-button` as const;
+import { SvElement } from '../SvElement'
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';
@@ -7,20 +8,13 @@ import styles from './styles.css';
 const sheet = new CSSStyleSheet();
 sheet.replaceSync(styles);
 
-export class Button extends HTMLElement {
+export class Button extends SvElement {
   emphasis: 'primary' | 'secondary' | 'tertiary'
   color: 'accent' | 'supporting' | 'main'
   size: 's' | 'm' | 'l'
-  dom: any;
-  host: any;
 
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open', delegatesFocus: true });
-    (this.shadowRoot as ShadowRoot).innerHTML = Template.render();
-    //@ts-ignore
-    this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.dom = Template.mapDOM(this.shadowRoot);
+    super(Template, sheet);
 
     this.emphasis = 'primary'
     this.color = 'main'

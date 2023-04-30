@@ -1,7 +1,4 @@
 export default {
-  render() {
-    return `${this.html()}`;
-  },
 
   mapDOM(scope) {
     return {

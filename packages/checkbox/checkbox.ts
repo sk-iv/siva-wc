@@ -1,27 +1,19 @@
 import conf from '../global.config'
 export const tagName = `${conf.wcPrefix}-checkbox` as const;
+import { SvElement } from '../SvElement'
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';
 const sheet = new CSSStyleSheet();
-//@ts-ignore
 sheet.replaceSync(styles);
 
-export class Checkbox extends HTMLElement {
+export class Checkbox extends SvElement {
 
-  #dom: any;
-  host: any;
   //https://microsoft.github.io/PowerBI-JavaScript/interfaces/_node_modules_typedoc_node_modules_typescript_lib_lib_dom_d_.inputevent.html
   handlerInput: (input: InputEvent) => void;
 
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open', delegatesFocus: true });
-
-    (this.shadowRoot as ShadowRoot).innerHTML = Template.render();
-    //@ts-ignore
-    this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.#dom = Template.mapDOM(this.shadowRoot);
+    super(Template, sheet);
     this.handlerInput = () => { };
   }
 
@@ -41,7 +33,7 @@ export class Checkbox extends HTMLElement {
     }, {});
 
     this.render(attrs);
-    this.#dom.control.oninput = this.onPointerUp;
+    this.dom.control.oninput = this.onPointerUp;
   }
 
   onPointerUp = (e) => {
@@ -56,17 +48,17 @@ export class Checkbox extends HTMLElement {
 
   attributeChangedCallback(attrName) {
     if (this.hasAttribute('checked')) {
-      this.#dom.root?.classList.add('checked')
+      this.dom.root?.classList.add('checked')
     } else {
-      this.#dom.control.checked = false
-      this.#dom.root?.classList.remove('checked')
+      this.dom.control.checked = false
+      this.dom.root?.classList.remove('checked')
     }
 
     if (attrName === 'disabled') {
       if (this.hasAttribute('disabled')) {
-        this.#dom.control?.setAttribute(attrName, '')
+        this.dom.control?.setAttribute(attrName, '')
       } else {
-        this.#dom.control.removeAttribute('disabled')
+        this.dom.control.removeAttribute('disabled')
       }
     }
   }
@@ -78,7 +70,7 @@ export class Checkbox extends HTMLElement {
         valType = ''
       }
 
-      return this.#dom.control?.setAttribute(key, valType)
+      return this.dom.control?.setAttribute(key, valType)
     })
   }
 }
