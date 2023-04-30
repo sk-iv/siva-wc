@@ -1,4 +1,4 @@
-import conf from '../../global.config'
+import conf from '../global.config'
 const glyphs = require('./glyphs/24/icons24.json')
 const glyphsRich = require('./glyphs/96/icons96.json')
 import Template from './template';
@@ -8,7 +8,7 @@ const sheet = new CSSStyleSheet();
 //@ts-ignore
 sheet.replaceSync(styles);
 
-export const tagName = `${conf.wcPrefix}-icon`
+export const tagName = `${conf.wcPrefix}-icon` as const;
 
 const type = {
   sm: {

@@ -12,6 +12,10 @@ const routes = {
     path: '/button',
     label: 'Button',
   },
+  checkbox: {
+    path: '/checkbox',
+    label: 'Checkbox',
+  },
   radio: {
     path: '/radio',
     label: 'Radio',

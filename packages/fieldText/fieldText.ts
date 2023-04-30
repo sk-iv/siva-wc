@@ -1,5 +1,5 @@
-import conf from '../../global.config'
-export const tagName = `${conf.wcPrefix}-field-text`
+import conf from '../global.config'
+export const tagName = `${conf.wcPrefix}-field-text` as const;
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';

@@ -27,4 +27,13 @@
   >
     <span slot="addon-before">🌝</span>
   </sv-field-text>
+
+  <sv-field-text
+    disabled={disabled?.checked || disabled?.default || null}
+    name="test"
+    value="one"
+    label="Главный герой"
+    oninput={onInput}
+  >
+  </sv-field-text>
 </section>

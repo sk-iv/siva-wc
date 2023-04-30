@@ -6,7 +6,7 @@ export default {
   mapDOM(scope) {
     return {
       root: scope?.getElementById('root'),
-      control: scope?.getElementById('control'),
+      control: scope?.querySelector('input[type="radio"]'),
       presentation: scope?.getElementById('presentation'),
     }
   },

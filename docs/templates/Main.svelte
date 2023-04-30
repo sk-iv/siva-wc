@@ -2,9 +2,10 @@
   import { Route, useResolve, useLocation } from "svelte-navigator";
   import attributes from "../storeAttributes";
   import Home from "../templates/Home.svelte";
+  import Checkbox from "../components/checkbox/Checkbox.svelte";
+  import Radio from "../components/radio/Radio.svelte";
   import Icon from "../components/icon/Icon.svelte";
   import Button from "../components/button/Button.svelte";
-  import Radio from "../components/radio/Radio.svelte";
   import FieldText from "../components/fieldText/FieldText.svelte";
   import ColorSystem from "../foundations/color-system/ColorSystem.svelte";
   import routes from "./routes";
@@ -40,6 +41,9 @@
   </Route>
   <Route path="/button" primary={false}>
     <svelte:component this={Button} {...componentProps} />
+  </Route>
+  <Route path="/checkbox" primary={false}>
+    <svelte:component this={Checkbox} {...componentProps} />
   </Route>
   <Route path="/radio" primary={false}>
     <svelte:component this={Radio} {...componentProps} />

@@ -1,5 +1,5 @@
 import conf from '../global.config'
-export const tagName = `${conf.wcPrefix}-radio` as const;
+export const tagName = `${conf.wcPrefix}-checkbox` as const;
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';
@@ -7,9 +7,9 @@ const sheet = new CSSStyleSheet();
 //@ts-ignore
 sheet.replaceSync(styles);
 
-export class Radio extends HTMLElement {
+export class Checkbox extends HTMLElement {
 
-  dom: any;
+  #dom: any;
   host: any;
   //https://microsoft.github.io/PowerBI-JavaScript/interfaces/_node_modules_typedoc_node_modules_typescript_lib_lib_dom_d_.inputevent.html
   handlerInput: (input: InputEvent) => void;
@@ -21,7 +21,7 @@ export class Radio extends HTMLElement {
     (this.shadowRoot as ShadowRoot).innerHTML = Template.render();
     //@ts-ignore
     this.shadowRoot.adoptedStyleSheets = [sheet];
-    this.dom = Template.mapDOM(this.shadowRoot);
+    this.#dom = Template.mapDOM(this.shadowRoot);
     this.handlerInput = () => { };
   }
 
@@ -41,15 +41,13 @@ export class Radio extends HTMLElement {
     }, {});
 
     this.render(attrs);
-    this.dom.control.oninput = this.onPointerUp;
+    this.#dom.control.oninput = this.onPointerUp;
   }
 
   onPointerUp = (e) => {
-    const checkedElement = document.querySelector(`${tagName}[name="${e.target.name}"][checked]`);
 
     if (Boolean(e.target.checked)) {
       this.setAttribute('checked', '')
-      checkedElement?.removeAttribute('checked')
     } else {
       this.removeAttribute('checked')
     }
@@ -58,17 +56,17 @@ export class Radio extends HTMLElement {
 
   attributeChangedCallback(attrName) {
     if (this.hasAttribute('checked')) {
-      this.dom.root.classList.add('checked')
+      this.#dom.root?.classList.add('checked')
     } else {
-      this.dom.control.checked = false
-      this.dom.root.classList.remove('checked')
+      this.#dom.control.checked = false
+      this.#dom.root?.classList.remove('checked')
     }
 
     if (attrName === 'disabled') {
       if (this.hasAttribute('disabled')) {
-        this.dom.control?.setAttribute(attrName, '')
+        this.#dom.control?.setAttribute(attrName, '')
       } else {
-        this.dom.control.removeAttribute('disabled')
+        this.#dom.control.removeAttribute('disabled')
       }
     }
   }
@@ -80,9 +78,9 @@ export class Radio extends HTMLElement {
         valType = ''
       }
 
-      return this.dom.control?.setAttribute(key, valType)
+      return this.#dom.control?.setAttribute(key, valType)
     })
   }
 }
 
-window.customElements.define(tagName, Radio);
+window.customElements.define(tagName, Checkbox);

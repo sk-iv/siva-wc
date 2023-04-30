@@ -16,10 +16,11 @@
     value="one"
     checked={true}
     oninput={onInput}
+    id="control1"
   >
-    <!-- svelte-ignore a11y-label-has-associated-control -->
-    <label>Kraken</label>
+    
   </sv-radio>
+  <label for="control1">Kraken</label>
   <sv-radio
     disabled={disabled?.checked || disabled.default || null}
     name="test"

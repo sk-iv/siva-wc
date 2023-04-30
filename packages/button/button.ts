@@ -1,5 +1,5 @@
-import conf from '../../global.config'
-export const tagName = `${conf.wcPrefix}-button`
+import conf from '../global.config'
+export const tagName = `${conf.wcPrefix}-button` as const;
 import Template from './template';
 //@ts-ignore
 import styles from './styles.css';

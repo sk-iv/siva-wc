@@ -10,9 +10,11 @@ describe('Icon', () => {
   });
 
   it('Icon', () => {
-    // const { getByRole } = within(element.shadowRoot)
-    screen.debug()
     const element = screen.getByTestId("icon")
     expect(element).toBeTruthy
+    const shadowDom = element.shadowRoot?.querySelector('svg')
+    if (shadowDom) {
+      screen.debug(shadowDom)
+    }
   })
 })

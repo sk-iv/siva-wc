@@ -1,11 +1,11 @@
-import { Button, tagName } from './button'
+import { Checkbox, tagName } from './checkbox'
 
-export { Button }
+export { Checkbox }
 //@ts-ignore
 declare module "solid-js" {
   namespace JSX {
     interface IntrinsicElements {
-      [tagName]: Button;
+      [tagName]: Checkbox;
     }
   }
 }
