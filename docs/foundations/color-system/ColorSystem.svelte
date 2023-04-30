@@ -29,3 +29,15 @@
   Написать про отношения между тенями и светом (тени можно делать более
   насыщенными)
 </p>
+<p>
+  🔗
+  <a
+    href="https://medium.muz.li/unlocking-the-power-of-design-tokens-to-create-dark-mode-ui-18c0802b094e"
+  >
+    Power of Design Tokens to Create Dark Mode UI
+  </a>
+</p>
+<p>
+  🔗
+  <a href="https://medium.com/eightshapes-llc/naming-tokens-in-design-systems-9e86c7444676"> Naming Tokens in Design Systems </a>
+</p>

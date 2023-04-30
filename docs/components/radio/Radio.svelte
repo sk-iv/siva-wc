@@ -18,9 +18,9 @@
     oninput={onInput}
     id="control1"
   >
-    
+    <!-- svelte-ignore a11y-label-has-associated-control -->
+    <label slot="label">Kraken</label>
   </sv-radio>
-  <label for="control1">Kraken</label>
   <sv-radio
     disabled={disabled?.checked || disabled.default || null}
     name="test"
@@ -28,6 +28,6 @@
     oninput={onInput}
   >
     <!-- svelte-ignore a11y-label-has-associated-control -->
-    <label>Sasquatch</label>
+    <label slot="label">Sasquatch</label>
   </sv-radio>
 </section>

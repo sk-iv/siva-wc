@@ -2,7 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  min-height: 100vh; 
+  min-height: 100vh;
+  color: var(--color-text-base);
 }
 
 * {
@@ -21,8 +22,9 @@ header {
 }
 main {
   grid-area: content;
-  background-color: #fff;
+  background-color: var(--color-base-24);
   padding: 24px;
+  box-shadow: var(--shadow-elevation-24);
 }
 nav {
   grid-area: nav;
@@ -48,7 +50,7 @@ section {
 }
 
 .wrapper {
-  background-color: #ccc;
+  background-color: var(--color-base-0);
   display: grid;
   grid-template-rows: min-content;
   grid-gap: 20px;
@@ -93,7 +95,7 @@ table {
 table th {
   text-align: right;
   font-weight: 400;
-  color: #515151;
+  color: var(--color-text-muted);
 }
 
 table th, table td {
@@ -142,4 +144,11 @@ table th, table td {
 #toc a {
   margin-bottom: 8px;
   display: inline-flex;
+}
+
+a {
+  color: var(--color-accent);
+}
+a:visited {
+  color: var(--color-text-supporting);
 }

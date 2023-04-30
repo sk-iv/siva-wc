@@ -1,0 +1,18 @@
+:root {
+  --color-accent: lch(59 39.36 219.29);
+  --color-text-accent: lch(100 0 0);
+  --color-supporting: lch(77 9.63 49.38);
+  --color-text-supporting: lch(42 2.32 50.57);
+  --color-base: #fff;
+
+  --color-base-0: lch(19 5.94 235.37);
+  --color-base-8: lch(29 0 0);
+  --color-base-12: lch(33 0 0);
+  --color-base-16: lch(22 8.21 210.92);
+  --color-base-24: lch(24 8.63 235.82);
+
+  --color-text-base: lch(82 0.01 0);
+  --color-text-muted: lch(72 0.01 0);
+
+  --shadow-elevation-24: lch(11 7.87 224.45 / 0.8) 0px 7px 29px 0px;
+}

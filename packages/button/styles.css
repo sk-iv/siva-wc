@@ -37,13 +37,13 @@
 :host [color="supporting"] {
   background-color: var(--color-supporting);
   border-color: var(--color-supporting);
-  color: #8b5a23;
+  color: var(--color-text-supporting);
 }
 
 :host [color="accent"] {
   background-color: var(--color-accent);
   border-color: #00746d;
-  color: #ffffff;
+  color: var(--color-text-accent);
 }
 
 :host [emphasis="tertiary"] {
@@ -53,11 +53,11 @@
 }
 
 :host [emphasis="secondary"] {
-  background-color: white;
+  background-color: transparent;
 }
 
 :host [emphasis="secondary"][color="main"] {
-  color: #8d8d8d;
+  color: var(--color-text-base);
 }
 
 :host [emphasis="secondary"][color="supporting"] {

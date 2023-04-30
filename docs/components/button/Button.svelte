@@ -1,4 +1,6 @@
 <script>
+  import attributes, { initAttributes } from "../../storeAttributes";
+
   export let emphasis;
   export let size;
   export let color;
@@ -18,11 +20,11 @@
   </p>
   <ul>
     <li>
-      <mark>Cсылки</mark> используются при переходе в другое место, например: страница «просмотреть всё», страница
+      <dfn>Cсылки</dfn> используются при переходе в другое место, например: страница «просмотреть всё», страница
       профиля и т. д. 
     </li>
     <li>
-      <mark>Кнопки</mark> используются при выполнении действия, например:
+      <dfn>Кнопки</dfn> используются при выполнении действия, например:
       «отправить», «объединить», «создать новый», «загрузить» и т. д.
     </li>
   </ul>
@@ -149,24 +151,24 @@
     <tr>
       <th><em>emphasis</em></th>
       <td>
-        <sv-button>primary</sv-button> |
-        <sv-button emphasis="secondary">secondary</sv-button>
+        <sv-button>primary</sv-button> &ensp;~&ensp;
+        <sv-button emphasis="secondary">secondary</sv-button> &ensp;~&ensp;
         <sv-button emphasis="tertiary">tertiary</sv-button>
       </td>
     </tr>
     <tr>
       <th><em>color</em></th>
       <td>
-        <sv-button>main</sv-button> |
-        <sv-button color="supporting">supporting</sv-button> |
+        <sv-button>main</sv-button> &ensp;~&ensp;
+        <sv-button color="supporting">supporting</sv-button> &ensp;~&ensp;
         <sv-button color="accent">accent</sv-button>
       </td>
     </tr>
     <tr>
       <th><em>size</em></th>
       <td>
-        <sv-button size="s">small</sv-button> |
-        <sv-button>medium</sv-button> |
+        <sv-button size="s">small</sv-button> &ensp;~&ensp;
+        <sv-button>medium</sv-button> &ensp;~&ensp;
         <sv-button size="l">large</sv-button>
       </td>
     </tr>

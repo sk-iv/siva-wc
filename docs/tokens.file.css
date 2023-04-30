@@ -1,11 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  min-height: 100vh; 
-}
 :root {
-  --color-accent: #007689;
-  --color-supporting: #cdb9b0;
+  --color-accent: lch(45 30.12 218.7);
+  --color-text-accent: lch(100 0 0);
+  --color-supporting: lch(77 9.63 49.38);
+  --color-text-supporting: lch(42 2.32 50.57);
   --color-base: #fff;
+
+  --color-base-0: lch(90 0 0 / 1);
+  --color-base-8: lch(93 0 0);
+  --color-base-12: lch(95 0 0);
+  --color-base-16: lch(97 0 0);
+  --color-base-24: lch(100 0 0);
+
+  --color-text-base: lch(0 0 0);
+  --color-text-muted: lch(52 0 0);
+
+  --shadow-elevation-24: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

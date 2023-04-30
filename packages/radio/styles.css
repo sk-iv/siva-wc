@@ -33,6 +33,13 @@
   fill: #a3a3a3;
   border-radius: 50%;
 }
+#root {
+  display: inline-flex;
+  align-items: center;
+}
+::slotted(label) {
+  margin-left: 8px;
+}
 :host([checked]) #presentation {
   fill: var(--color-accent);
 }
