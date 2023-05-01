@@ -22,7 +22,7 @@
     disabled={disabled?.checked || disabled?.default || null}
     name="test"
     value="one"
-    label="Главный герой"
+    label="Поле с дополнением"
     oninput={onInput}
   >
     <span slot="addon-before">🌝</span>
@@ -32,8 +32,28 @@
     disabled={disabled?.checked || disabled?.default || null}
     name="test"
     value="one"
-    label="Главный герой"
+    label="Простое поле"
     oninput={onInput}
   >
+  </sv-field-text>
+
+  <sv-field-text
+    disabled={disabled?.checked || disabled?.default || null}
+    name="spinbutton"
+    label="Spinbutton"
+    oninput={onInput}
+    type="number"
+    min="0"
+    max="10"
+    style="width:6ch;display:flex;"
+  >
+  <!-- Добавить тип кнопки spin-down -->
+    <sv-button size="s" slot="addon-before">
+      <sv-icon name="minus" />
+    </sv-button>
+    <!-- Добавить тип кнопки spin-up -->
+    <sv-button size="s" slot="addon-after">
+      <sv-icon name="plus" />
+    </sv-button>
   </sv-field-text>
 </section>

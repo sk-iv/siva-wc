@@ -16,6 +16,7 @@ export abstract class SvElement extends HTMLElement {
     this.shadowRoot.innerHTML = SvElement.render(template);
 
     this.shadowRoot.adoptedStyleSheets = [sheet];
+    
     this.dom = template.mapDOM(this.shadowRoot);
   }
 }

@@ -1,7 +1,4 @@
 export default {
-  render() {
-    return `${this.html()}`;
-  },
 
   getNode(node, children) {
     return new DOMParser().parseFromString(this.mapFragments(children)[node], 'text/xml').firstChild
@@ -11,12 +8,14 @@ export default {
     return {
       root: scope?.getElementById('root'),
       control: scope?.getElementById('control'),
+      slotAddonBefore: scope?.querySelector('slot[name="addon-before"]'),
+      slotAddonAfter: scope?.querySelector('slot[name="addon-after"]'),
     }
   },
 
   mapFragments(children) {
     return {
-      label: `<label>${children}</label>`,
+      label: `<label for="control">${children}</label>`,
     }
   },
 

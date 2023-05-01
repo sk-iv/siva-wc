@@ -1,0 +1,23 @@
+{
+  "name": "@sivasifr/wc-ui",
+  "private": false,
+  "version": "0.0.0",
+  "description": "ui web components library",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules vitest --config ./vitest.config.ts",
+    "tsc:watch": "tsc --watch",
+    "start": "concurrently --kill-others --names tsc,web-dev-server \"npm run tsc:watch\" \"web-dev-server --app-index docs/index.html --node-resolve --open --watch\"",
+    "rollup": "rollup -c rollup.config.js",
+    "serve": "serve",
+    "dev": "webpack serve --env development --mode development",
+    "lint:eslint": "eslint --ext .ts . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .ts . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.ts\" --check --ignore-path .gitignore"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config"
+    ]
+  }
+}

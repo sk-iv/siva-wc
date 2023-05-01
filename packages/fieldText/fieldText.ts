@@ -15,6 +15,8 @@ export class FieldText extends SvElement {
     super(Template, sheet);
 
     this.handlerInput = () => { };
+    this.dom.slotAddonBefore.onslotchange = this.onSlotAddonBeforeChange;
+    this.dom.slotAddonAfter.onslotchange = this.onSlotAddonAfterChange;
   }
 
   static get observedAttributes() {
@@ -57,6 +59,43 @@ export class FieldText extends SvElement {
 
   onInput = (e) => {
     this.handlerInput(e)
+    this.validate()
+  }
+
+  onSlotAddonBeforeChange = () => {
+    let nodes = this.dom.slotAddonBefore.assignedElements();
+    if (nodes[0].nodeName.includes('BUTTON')) {
+      const minusBtn = nodes[0].shadowRoot.querySelector('button')
+      minusBtn.onclick = this.onStepDown      
+    }
+  }
+
+  onSlotAddonAfterChange = () => {
+    let nodes = this.dom.slotAddonAfter.assignedElements();
+    if (nodes[0].nodeName.includes('BUTTON')) {
+      const minusBtn = nodes[0].shadowRoot.querySelector('button')
+      minusBtn.onclick = this.onStepUp      
+    }
+  } 
+
+  onStepDown = () => {
+    this.dom.control.stepDown()
+    this.validate()
+  }
+
+  onStepUp = () => {
+    this.dom.control.stepUp()
+    this.validate()
+  }
+
+  validate = () => {
+    const isValid = this.dom.control.checkValidity();
+    this.dom.control.setAttribute('aria-invalid', !isValid)
+    if (!isValid) {
+      this.dom.root.classList.add('invalid')
+    } else {
+      this.dom.root.classList.remove('invalid')
+    }
   }
 
   attributeChangedCallback() {

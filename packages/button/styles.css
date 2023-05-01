@@ -1,3 +1,7 @@
+#root {
+  padding: 0;
+}
+
 :focus-visible {
   outline: rgba(0, 0, 0, 0.4) dotted 2px;
   outline-offset: -4px;
