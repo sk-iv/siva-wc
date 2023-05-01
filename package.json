@@ -1,6 +1,8 @@
 {
-  "name": "root",
+  "name": "@sivasifr/wc-ui",
   "private": true,
+  "version": "0.0.0",
+  "description": "ui web components library",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules vitest --config ./vitest.config.ts",
